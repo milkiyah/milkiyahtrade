@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milkiyah International Trade Sdn Bhd</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #edf7f8;
+      --surface: #f7fbfc;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #cfe3e8;
+      --primary: #0b4f63;
+      --primary-soft: #1e8c99;
+      --teal: #3aa6a8;
+      --deep-teal: #073f4c;
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1280px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .navbar {
+      background: linear-gradient(90deg, #2f8f98 0%, #46aeb2 45%, #2b7d87 100%);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), inset 0 -1px rgba(255, 255, 255, 0.06);
+    }
+
+    .navbar-inner {
+      min-height: 110px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.28);
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 14px 18px;
+      background: transparent;
+      border-right: 1px solid rgba(255, 255, 255, 0.20);
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:last-child {
+      border-right: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+      opacity: 0.72;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 92vh;
+      background:
+        linear-gradient(to right, rgba(7, 63, 76, 0.88), rgba(11, 79, 99, 0.58), rgba(30, 140, 153, 0.18)),
+        url('images/main-picture.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 860px;
+      color: var(--white);
+      padding: 90px 0;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 8vw, 7rem);
+      line-height: 0.92;
+      font-weight: 500;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+    }
+
+    .hero-line {
+      width: 58px;
+      height: 3px;
+      background: var(--teal);
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      max-width: 580px;
+      color: rgba(255, 255, 255, 0.88);
+      margin-bottom: 34px;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 28px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: 0.25s ease;
+    }
+
+    .btn-light {
+      background: var(--white);
+      color: var(--deep-teal);
+    }
+
+    .btn-light:hover {
+      background: #e9f7f8;
+    }
+
+    .btn-dark {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-dark:hover,
+    .submit-btn:hover {
+      background: var(--deep-teal);
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+    }
+
+    .about-copy {
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      padding: 70px 0;
+    }
+
+    .about-copy-inner {
+      width: min(540px, 100%);
+      margin-left: auto;
+      margin-right: 48px;
+    }
+
+    .about-image img {
+      height: 100%;
+      min-height: 620px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 0.95;
+      font-weight: 600;
+      letter-spacing: -1px;
+      margin-bottom: 26px;
+      color: var(--deep-teal);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.82rem;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--primary-soft);
+      font-weight: 700;
+    }
+
+    .about-copy p,
+    .service-card p,
+    .contact-copy p,
+    .market-card p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    /* STATS */
+    .stats {
+      padding: 90px 0 40px;
+      background: linear-gradient(to bottom, rgba(11, 79, 99, 0.02), rgba(11, 79, 99, 0.05));
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(11, 79, 99, 0.14);
+      border-bottom: 1px solid rgba(11, 79, 99, 0.14);
+    }
+
+    .stat-card {
+      padding: 54px 42px;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: transparent;
+    }
+
+    .stat-card:not(:last-child) {
+      border-right: 1px solid rgba(11, 79, 99, 0.14);
+    }
+
+    .stat-card::before {
+      content: '';
+      width: 52px;
+      height: 2px;
+      background: var(--primary-soft);
+      margin-bottom: 28px;
+      display: block;
+    }
+
+    .stat-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.6rem, 6vw, 5.4rem);
+      line-height: 0.9;
+      margin-bottom: 20px;
+      font-weight: 600;
+      letter-spacing: -2px;
+      color: var(--primary);
+    }
+
+    .stat-card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-weight: 600;
+    }
+
+    /* SECTIONS */
+    .services,
+    .markets,
+    .gallery,
+    .partners,
+    .contact {
+      padding: 64px 0 10px;
+    }
+
+    .services-grid,
+    .markets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .service-card,
+    .market-card {
+      background: transparent;
+    }
+
+    .service-card img,
+    .market-card img {
+      height: 420px;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .service-card h3,
+    .market-card h3 {
+      margin: 20px 0 12px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--deep-teal);
+    }
+
+    .gallery-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .gallery-grid img {
+      height: 430px;
+      object-fit: cover;
+      transition: 0.35s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    /* PARTNERS */
+    .partners {
+      background: linear-gradient(to bottom, rgba(11, 79, 99, 0.03), rgba(11, 79, 99, 0.07));
+    }
+
+    .partners-intro {
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 34px;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .partner-card {
+      min-height: 130px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(11, 79, 99, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      text-align: center;
+      color: var(--deep-teal);
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      transition: 0.3s ease;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(11, 79, 99, 0.10);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .partner-card img {
+      max-height: 72px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* CONTACT */
+    .contact-area {
+      margin-top: 24px;
+      background:
+        linear-gradient(rgba(237, 247, 248, 0.78), rgba(237, 247, 248, 0.78)),
+        url('images/main-picture.jpg') center/cover no-repeat;
+      padding: 34px;
+      border: 1px solid var(--line);
+    }
+
+    .contact-card {
+      background: rgba(247, 251, 252, 0.95);
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      min-height: 520px;
+    }
+
+    .contact-copy img {
+      width: 190px;
+      height: 190px;
+      margin-top: 12px;
+    }
+
+    form {
+      display: grid;
+      gap: 22px;
+      align-content: start;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: none;
+      border-bottom: 1.4px solid rgba(7, 63, 76, 0.55);
+      background: transparent;
+      padding: 12px 2px;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 18px 24px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .footer {
+      padding: 28px 0 40px;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1080px) {
+      .navbar-inner {
+        min-height: auto;
+        padding: 22px 0;
+        flex-wrap: wrap;
+      }
+
+      .brand-name {
+        white-space: normal;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 0;
+      }
+
+      .about,
+      .services-grid,
+      .markets-grid,
+      .gallery-grid,
+      .contact-card,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .about-copy-inner {
+        width: 100%;
+        margin: 0;
+      }
+
+      .about-copy {
+        padding: 60px 24px;
+      }
+
+      .about-image img {
+        min-height: 420px;
+      }
+
+      .stats-grid,
+      .partners-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-card:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid rgba(11, 79, 99, 0.14);
+      }
+
+      .service-card img,
+      .market-card img,
+      .gallery-grid img {
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 32px, 1280px);
+      }
+
+      .brand-area {
+        gap: 16px;
+      }
+
+      .brand-logo {
+        height: 56px;
+        width: 56px;
+      }
+
+      .brand-divider {
+        height: 52px;
+      }
+
+      .brand-name {
+        font-size: 1.3rem;
+      }
+
+      .nav-links a {
+        font-size: 0.95rem;
+        padding: 12px 14px;
+      }
+
+      .hero {
+        min-height: 76vh;
+      }
+
+      .hero-content {
+        padding: 56px 0;
+      }
+
+      .contact-area,
+      .contact-card {
+        padding: 22px;
+      }
+
+      .btn {
+        padding: 12px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="#home" class="brand-area">
+        <img src="images/milkiyah-logo.png" alt="Milkiyah International Trade Logo" class="brand-logo" />
+        <span class="brand-divider"></span>
+        <span class="brand-name">Milkiyah International Trade Sdn Bhd</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#markets">Products</a>
+        <a href="#partners">Partners</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Reliable<br />Commodity Trade<br />Connections</h1>
+        <div class="hero-line"></div>
+        <p>
+          Milkiyah International Trade Sdn Bhd supports commodity trading through practical coordination, dependable sourcing, and cross-border business connections.
+        </p>
+        <a href="#contact" class="btn btn-light">Enquire Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-copy">
+      <div class="about-copy-inner">
+        <span class="eyebrow">About Us</span>
+        <h2 class="section-title">Connecting markets through reliable global trade solutions</h2>
+        <p>
+          Milkiyah International Trade Sdn Bhd is a global trading company specializing in commodity trading, import-export operations, and supply chain solutions. With strong business networks across Turkey, Vietnam, Thailand, Indonesia, and the Philippines, the company is able to source high-demand products efficiently while delivering reliable and customized trade solutions for clients worldwide.
+        </p>
+        <p>
+          As a proud member of MATRADE Malaysia, Milkiyah International Trade continues to strengthen its regional and international presence through efficient logistics and procurement services. The company also operates warehouses in both Malaysia and Indonesia, enhancing its capabilities in distribution, storage, and cross-border trade management.
+        </p>
+        <a href="#services" class="btn btn-dark">Learn More</a>
+      </div>
+    </div>
+
+    <div class="about-image">
+      <img src="images/about-us.jpg" alt="About Milkiyah International Trade" />
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>2017</h3>
+          <p>Established Since</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>10+</h3>
+          <p>Countries<br />Global Trade Markets</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>50,000+ MT</h3>
+          <p>Commodities Supplied</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <span class="eyebrow">Our Services</span>
+      <h2 class="section-title">Services</h2>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <img src="images/commodity-trading.jpg" alt="Commodity trading" />
+          <h3>Commodity Trading</h3>
+          <p>
+            Our commodity trading division supplies a wide range of food and non-food commodities including rice, wheat, and rubber by connecting global suppliers and buyers through reliable sourcing, competitive pricing, and efficient trade solutions.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img src="images/fast-moving-consumer-goods.jpg" alt="Fast Moving Consumer Goods" />
+          <h3>Fast Moving Consumer Goods (FMCG)</h3>
+          <p>
+            Our FMCG commercial wholesale division provides cost-effective bulk supply solutions for essential consumer products, supporting the growing market demand with reliable sourcing and distribution services.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img src="images/freight-logistics.jpg" alt="Freight logistics" />
+          <h3>Freight Logistics</h3>
+          <p>
+            Our freight logistics division provides secure and efficient door-to-door transportation solutions, ensuring timely delivery and seamless handling of goods across global markets.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="markets" id="markets">
+    <div class="container">
+      <span class="eyebrow">Trade Focus</span>
+      <h2 class="section-title">Products</h2>
+
+      <div class="markets-grid">
+        <article class="market-card">
+          <img src="images/rice-grains.jpg" alt="Rice grains" />
+          <h3>Rice Grains</h3>
+          <p>
+            Supplying high-quality rice grains and flour sourced from trusted producers across Thailand, Vietnam, and India since 2018.
+          </p>
+        </article>
+
+        <article class="market-card">
+          <img src="images/cooking-oils.jpg" alt="Cooking oils" />
+          <h3>Cooking Oils</h3>
+          <p>
+            Providing premium refined and pure cooking oils through strong supplier networks in Malaysia and Indonesia.
+          </p>
+        </article>
+
+        <article class="market-card">
+          <img src="images/premium-rubbers.jpg" alt="Premium rubber" />
+          <h3>Premium Rubber</h3>
+          <p>
+            Delivering quality rubber sourced from leading producers in Southeast Asia to clients across Malaysia and global markets.
+          </p>
+        </article>
+      </div>
+
+      <div class="markets-grid" style="margin-top: 32px;">
+        <article class="market-card">
+          <img src="images/land-mining.jpg" alt="Land mining" />
+          <h3>Iron Ore</h3>
+          <p>
+            Supplying high-quality minerals including manganese ore, iron ore, and nickel through an extensive mining and trading network in the Philippines.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+ <section class="gallery" id="gallery">
+  <div class="container">
+
+    <span class="eyebrow">Visuals</span>
+    <h2 class="section-title">Gallery</h2>
+
+    <div class="gallery-grid">
+
+     
+      <img src="images/gallery-03.jpg" alt="Gallery image">
+      <img src="images/gallery-07.jpg" alt="Gallery image">
+      <img src="images/gallery-08.jpg" alt="Gallery image">
+      <img src="images/gallery-09.jpg" alt="Gallery image">
+      <img src="images/gallery-10.jpg" alt="Gallery image">
+      <img src="images/gallery-11.jpg" alt="Gallery image">
+
+      <img src="images/gallery-12.jpg" alt="Gallery image">
+      <img src="images/gallery-14.jpg" alt="Gallery image">
+      <img src="images/gallery-15.jpg" alt="Gallery image">
+      <img src="images/gallery-16.jpg" alt="Gallery image">
+      <img src="images/gallery-17.jpg" alt="Gallery image">
+
+      <img src="images/gallery-18.jpg" alt="Gallery image">
+      <img src="images/gallery-19.jpg" alt="Gallery image">
+
+    </div>
+
+  <section class="partners" id="partners">
+
+    <div class="container">
+
+        <span class="eyebrow">OUR NETWORK</span>
+
+        <h2 class="section-title">
+            Our Partners
+        </h2>
+
+        <div class="partners-grid">
+
+            <img src="images/logo-partner-1.png" alt="">
+            <img src="images/logo-partner-2.png" alt="">
+            <img src="images/logo-partner-3.png" alt="">
+            <img src="images/logo-partner-4.png" alt="">
+            <img src="images/logo-partner-5.png" alt="">
+            <img src="images/logo-partner-6.png" alt="">
+
+        </div>
+
+    </div>
+
+</section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-area">
+        <div class="contact-card">
+          <div class="contact-copy">
+            <span class="eyebrow">Get In Touch</span>
+            <h2 class="section-title">Contact Us</h2>
+            <p>
+              For business enquiries, strategic partnerships, or commodity trade discussions, reach out and we will get back to you.
+            </p>
+            <img src="images/milkiyah-logo.png" alt="Milkiyah International Trade Logo" />
+          </div>
+
+          <form>
+            <div class="form-row">
+              <input type="text" placeholder="First name *" required />
+              <input type="text" placeholder="Last name *" required />
+            </div>
+
+            <div class="form-row">
+              <input type="text" placeholder="Phone number" />
+              <input type="email" placeholder="Email *" required />
+            </div>
+
+            <textarea placeholder="Message"></textarea>
+            <button class="submit-btn" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Milkiyah International Trade Sdn Bhd. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
